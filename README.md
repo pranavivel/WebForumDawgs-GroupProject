@@ -11,8 +11,8 @@ Our team collaboratively designed, developed, and deployed this full-stack web a
 
 | Member Name      | GitHub Username      | Role          |
 |------------------|----------------------|---------------|
-|                  |                      | Project Leader  |
-|                  |                      | Project Manager   |
+|Connor Torkelson  |ConnorjTork           | Project Leader|
+|                  |                      | Project Manager|
 |                  |                      | GitHub Captain |
 |                  |                      |(Communication Leader - opt.)   |
 
