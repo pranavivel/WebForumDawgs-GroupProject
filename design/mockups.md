@@ -1,13 +1,12 @@
-# Project_Name_Here
+# Class Forum
 
 ## Our Group
-- 
-- 
-- 
--
+- Pranavi Veluguleti
+- Connor Torkelson
+- Tyler Gemmel
 
-- class section ( AM or PM )
-- group name 
+- class section: PM
+- webDawgs
 
 ---
 ## Splash page
