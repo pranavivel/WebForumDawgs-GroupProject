@@ -1,4 +1,4 @@
-# Project_Name_Here
+# Web Forum Dawgs
 
 ##  Overview
 
@@ -7,12 +7,12 @@ Our team collaboratively designed, developed, and deployed this full-stack web a
 
 ---
 
-## Our Team - Group_Name_Here 
+## Our Team - webDawgs 
 
 | Member Name      | GitHub Username      | Role          |
 |------------------|----------------------|---------------|
 |Connor Torkelson  |ConnorjTork           | Project Leader|
-|                  |                      | Project Manager|
+|Pranavi Veluguleti|pranavivel            | Project Manager|
 |                  |                      | GitHub Captain |
 |                  |                      |(Communication Leader - opt.)   |
 
@@ -30,7 +30,7 @@ Our team collaboratively designed, developed, and deployed this full-stack web a
 ## Repository Structure
 
 ```
-│── {project-name}
+│── {Web_Forum_Dawgs}
 │   └── src
 │       └── app - App Router pages & API routes
 │            └──   components → list components
