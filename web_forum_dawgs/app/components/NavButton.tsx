@@ -9,7 +9,7 @@ type NavButtonProps = {
 //This is the NavButton component, which is a functional component that takes in props of type NavButtonProps
 export default function NavButton({ text }: NavButtonProps) {
   return (
-    <button className="NavButton bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626]">
+    <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626]">
       {text}
     </button>
   );
