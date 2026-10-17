@@ -43,7 +43,7 @@ body {
 
 .SplashImage {
   flex: 1;
-  background-image: url("../public/images/placeholder.png"); 
+  background-image: url("../public/images/splash.png"); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,8 +54,8 @@ body {
   padding-bottom: 150px;
 }
 
-.splashText {
+.SplashText {
   font-size: 2rem;
-  color: rgb(105, 54, 54);
+  color: white;
   text-align: center;
 }
