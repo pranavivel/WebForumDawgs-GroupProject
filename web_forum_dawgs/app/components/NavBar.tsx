@@ -4,7 +4,7 @@ import Link from "next/link";
 
 type NavBarProps = {
   isLoggedIn: boolean;
-  userName: string;
+  userName?: string;
   activePage?: string
 };
 
@@ -44,7 +44,7 @@ export default function NavBar({ isLoggedIn, userName, activePage }: NavBarProps
                     <NavButton text={`${userName}: Log Out`}/>
                 </>
             ) : (
-                <Link href="/signin">
+                <Link href="/signup">
                     <div className={activePage === "Sign Up / Sign In" ? "border-b-2 border-white pb-1" : "opacity-80"}>
                         <NavButton text="Sign Up / Sign In"/>
                     </div>
