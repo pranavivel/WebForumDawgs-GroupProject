@@ -9,7 +9,7 @@ import Link from "next/dist/client/link";
 export default function SignIn() {
     return (
         <>
-            <NavBar isLoggedIn={false} userName={"IDK :("} activePage="Sign Up / Sign In"/>
+            <NavBar isLoggedIn={false} activePage="Sign Up / Sign In"/>
 
             <div className="min-h-screen w-full bg-[#F3EAD6] ">
                 <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930]">Sign In</h1>
