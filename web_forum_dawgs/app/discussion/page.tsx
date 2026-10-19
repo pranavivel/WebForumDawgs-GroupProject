@@ -56,7 +56,9 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                     {/*Drop down and create post button*/}
                     <div className="flex flex-row gap-20 justify-center items-center">
                         <DropDown/>
-                        <NavButton text="+ Create Post"/>
+                        <Link href="/create">
+                            <NavButton text="+ Create Post"/>
+                        </Link>
                     </div>
                     
 
