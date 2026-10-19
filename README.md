@@ -13,7 +13,7 @@ Our team collaboratively designed, developed, and deployed this full-stack web a
 |------------------|----------------------|---------------|
 |Connor Torkelson  |ConnorjTork           | Project Leader|
 |Pranavi Veluguleti|pranavivel            | Project Manager|
-|                  |                      | GitHub Captain |
+|Tyler Gemmell     |tag54003              | GitHub Captain |
 |                  |                      |(Communication Leader - opt.)   |
 
 ---
