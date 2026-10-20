@@ -121,7 +121,7 @@ export default function Create() {
 
                     <label className="grow">Rating:</label>
                     <div className="flex" id="rating">
-                            <DropDown/>
+                            <DropDown dropOption="rating"/>
 
                     </div>
 

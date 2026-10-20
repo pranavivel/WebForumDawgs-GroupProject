@@ -3,7 +3,7 @@
 import {useState} from 'react'
 
 type DropDownProps = {
-    dropOption: boolean;
+    dropOption: string;
 }
 
 export default function DropDown({dropOption} : DropDownProps) {
@@ -27,11 +27,9 @@ export default function DropDown({dropOption} : DropDownProps) {
     ];
 
 
+    const currOption = dropOption === "rating" ? optionsFormRating : optionsPostType
 
-
-    return (
-        dropOption ?
-            (   
+    return ( 
             <div className="relative w-56">
             <button
                 type="button"
@@ -44,7 +42,7 @@ export default function DropDown({dropOption} : DropDownProps) {
 
             {isOpen && (
                 <div className="absolute top-full mt-2 w-full bg-[#997E67] rounded-[8px] shadow-lg z-10">
-                    {optionsPostType.map((option) => (
+                    {currOption.map((option) => (
                         <button
                         type="button"
                         key={option.value}
@@ -60,37 +58,7 @@ export default function DropDown({dropOption} : DropDownProps) {
                 </div>
             )}
 
-            </div> ) : (
-                <div className="relative w-56">
-            <button
-                type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-expanded={isOpen}
-                className="w-full bg-[#997E67] text-white px-4 py-2 rounded-[8px] font-bold text-left cursor-pointer"
-                >
-                    {chosenOption}
-                </button>
-
-            {isOpen && (
-                <div className="absolute top-full mt-2 w-full bg-[#997E67] rounded-[8px] shadow-lg z-10">
-                    {optionsFormRating.map((option) => (
-                        <button
-                        type="button"
-                        key={option.value}
-                        onClick={() => {
-                            setChosenOption(option.label);
-                            setIsOpen(false);
-                        }}
-                        className="w-full text-white px-4 py-2 text-left cursor-pointer hover:bg-[#664930]"
-                    >
-                        {option.label}
-                    </button>
-                ))}
-                </div>
-            )}
-
-            </div>
-             )
+            </div> 
 
 );
 } 
