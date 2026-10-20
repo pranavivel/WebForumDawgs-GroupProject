@@ -18,13 +18,13 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
     const testingREMOVEloggedIn = true;
     return (
         <>
-            <div className="min-h-screen pb-24 w-full bg-[#F3EAD6]">
+            <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
 
                 {/*Basic navbar and title for the page.*/ }
-                <NavBar isLoggedIn={testingREMOVEloggedIn} userName={"IDK :("} activePage="Discussion"/>
+                <NavBar isLoggedIn={testingREMOVEloggedIn} userName={"temp"}/>
 
                 {/*title heading */}
-                <div className="flex flex-col items-center justify-center mt-[5%] gap-12">
+                <div className="max-w-300 mx-auto px-6 flex flex-col items-center justify-center mt-[5%] gap-12">
                     <h1 className="text-4xl font-bold text-center text-[#664930]">Discussion</h1>
                     {/*SEarch bar*/}
                     <div className="relative w-full max-w-[600px]">
@@ -64,44 +64,41 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
 
 
                     {/*Cards*/}
-                    <div className="flex flex-col mt-30">
-                        
-                        <div className="flex flex-row gap-30">
-                            <Card 
-                            isLoggedIn={testingREMOVEloggedIn}
-                            postAuthor={"dawg123"}
-                            title={"CSCI 4300"}
-                            time={"2 hours ago"}
-                            content={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in."}
-                            postTag={"Course Discussion"}
-                            courseTag={"Humanities & Arts"}
-                            likes={10}
-                            rating={4}
-                        />
-                            <Card 
-                            isLoggedIn={testingREMOVEloggedIn}
-                            postAuthor={"dawg123"}
-                            title={"CSCI 4300"}
-                            time={"2 hours ago"}
-                            content={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in."}
-                            postTag={"Course Discussion"}
-                            courseTag={"Humanities & Arts"}
-                            likes={10}
-                            rating={4}
-                        />
-                            <Card 
-                            isLoggedIn={testingREMOVEloggedIn}
-                            postAuthor={"dawg123"}
-                            title={"CSCI 4300"}
-                            time={"2 hours ago"}
-                            content={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in."}
-                            postTag={"Course Discussion"}
-                            courseTag={"Humanities & Arts"}
-                            likes={10}
-                            rating={4}
-                        />
+                    <div className="w-full mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 justify-items-center">
 
-                        </div>
+                        <Card 
+                        isLoggedIn={testingREMOVEloggedIn}
+                        postAuthor={"dawg123"}
+                        title={"CSCI 4300"}
+                        time={"2 hours ago"}
+                        content={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in."}
+                        postTag={"Course Discussion"}
+                        courseTag={"Humanities & Arts"}
+                        likes={10}
+                        rating={4}
+                    />
+                        <Card 
+                        isLoggedIn={testingREMOVEloggedIn}
+                        postAuthor={"dawg123"}
+                        title={"CSCI 4300"}
+                        time={"2 hours ago"}
+                        content={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in."}
+                        postTag={"Course Discussion"}
+                        courseTag={"Humanities & Arts"}
+                        likes={10}
+                        rating={4}
+                    />
+                        <Card 
+                        isLoggedIn={testingREMOVEloggedIn}
+                        postAuthor={"dawg123"}
+                        title={"CSCI 4300"}
+                        time={"2 hours ago"}
+                        content={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in."}
+                        postTag={"Course Discussion"}
+                        courseTag={"Humanities & Arts"}
+                        likes={10}
+                        rating={4}
+                    />
                     </div>
                     
                    

@@ -3,20 +3,46 @@
 import {useState} from 'react'
 
 export default function DropDown() {
-    const [chosenOption, setChosenOption] = useState('All')
+    const [chosenOption, setChosenOption] = useState('All');
+    const [isOpen,setIsOpen] = useState(false);
+
+    // options for dropdown menu, value is what is stored in state, label is what is displayed to user
+        const options = [
+        { value: 'all', label: 'All' },
+        { value: 'discussion', label: 'Course Discussion' },
+        { value: 'mini', label: 'Student Mini-Course' },
+        { value: 'resource', label: 'Resources' },
+    ];
 
     return (
-        <>
-            <div className="flex flex-col gap-2">
-                <select value={chosenOption} onChange={(e) => setChosenOption(e.target.value)}
-                    className="bg-[#997E67] text-[#FFFFFF] px-4 py-2 rounded-[8px] font-bold outline-none focus:outline-[#664930] shadow-sm cursor-pointer"
+        
+        <div className="relative w-56">
+            <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-expanded={isOpen}
+                className="w-full bg-[#997E67] text-white px-4 py-2 rounded-[8px] font-bold text-left cursor-pointer"
                 >
-                    <option value="all">All</option>
-                    <option value="discussion">Course Discussion</option>
-                    <option value="mini">Student Mini-Course</option>
-                    <option value="resource">Resources</option>
-                </select>
-            </div>
-        </>
-    )
-}
+                    {chosenOption}
+                </button>
+
+            {isOpen && (
+                <div className="absolute top-full mt-2 w-full bg-[#997E67] rounded-[8px] shadow-lg z-10">
+                    {options.map((option) => (
+                        <button
+                        type="button"
+                        key={option.value}
+                        onClick={() => {
+                            setChosenOption(option.label);
+                            setIsOpen(false);
+                        }}
+                        className="w-full text-white px-4 py-2 text-left cursor-pointer hover:bg-[#664930]"
+                    >
+                        {option.label}
+                    </button>
+                ))}
+                </div>
+            )}
+        </div>
+    );
+}           
