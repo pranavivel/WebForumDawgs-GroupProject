@@ -75,7 +75,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                         postTag={"Course Discussion"}
                         courseTag={"Humanities & Arts"}
                         likes={10}
-                        rating={4}
+                        rating={0}
                     />
                         <Card 
                         isLoggedIn={testingREMOVEloggedIn}
@@ -86,7 +86,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                         postTag={"Course Discussion"}
                         courseTag={"Humanities & Arts"}
                         likes={10}
-                        rating={4}
+                        rating={2}
                     />
                         <Card 
                         isLoggedIn={testingREMOVEloggedIn}
@@ -97,7 +97,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                         postTag={"Course Discussion"}
                         courseTag={"Humanities & Arts"}
                         likes={10}
-                        rating={4}
+                        rating={5}
                     />
                     </div>
                     
