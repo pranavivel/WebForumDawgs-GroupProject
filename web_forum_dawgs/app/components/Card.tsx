@@ -27,7 +27,7 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
 
   
     return (
-        <div className="bg-white p-4 rounded-[8px] shadow-md flex flex-col w-[500px] h-[700px]">
+        <div className="bg-white p-4 rounded-[8px] shadow-md flex flex-col justify-between w-full max-w-[360px] h-[700px]">
             {/* User who posted and the tags here*/}
             <div className="flex flex-row justify-between mb-2">
                 <p className="text-[#664930] font-bold">Posted By @{postAuthor} ○ {time}</p>
@@ -42,7 +42,7 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
             <div className="flex flex-col justify-center items-center">
                 <h2 className="text-[30px] mt-4 font-bold text-[#1E1E1E]">{title}</h2>
                 <p className="text-[#1E1E1E] mt-8 ml-8 mr-8 text-[14px] font-bold">{content}</p>
-                <Link href="/" className="flex flex-row items-center gap-2 mt-[40%] ">
+                <Link href="/" className="flex flex-row items-center gap-2 mt-auto mb-4">
                     <div className="relative w-6 h-6">
                         <Image 
                             src="/icons/readMoreOne.svg"
@@ -55,7 +55,7 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
                 </Link>
 
                 {/*Footer part */}
-                <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-[470px] h-[80px] mt-[15%] items-center">
+                <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-full h-[70px] items-center justify-between px-6">
                     <div className="flex flex-col">
                         <div 
                         onClick={() => {
