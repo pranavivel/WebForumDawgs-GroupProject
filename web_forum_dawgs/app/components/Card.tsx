@@ -51,8 +51,8 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
             <div className="flex flex-row justify-between mb-2">
                 <p className="text-[#664930] text-[8px] font-bold">Posted By @{postAuthor} ○ {time}</p>
                 <div className="flex flex-col gap-4">
-                    <Pill title={postTag} textColor="text-[#664930]" pillColor="bg-[#CEC4BA]" width="w-[120px]" height="h-[20px]" />
-                    <Pill title={courseTag} textColor="text-[#664930]" pillColor="bg-[#CEC4BA]" width="w-[120px]" height="h-[20px]" />
+                    <Pill title={postTag} textColor="text-[#664930]" pillColor="bg-[#CEC4BA]" width="w-[120px]" height="h-[20px]" textSize="text-[9px]" />
+                    <Pill title={courseTag} textColor="text-[#664930]" pillColor="bg-[#CEC4BA]" width="w-[120px]" height="h-[20px]" textSize="text-[9px]" />
                 </div>
 
             </div>
