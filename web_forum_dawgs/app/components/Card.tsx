@@ -42,17 +42,33 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
             <div className="flex flex-col flex-grow justify-center items-center">
                 <h2 className="text-[30px] mt-6 font-bold text-center text-[#1E1E1E]">{title}</h2>
                 <p className="text-[#1E1E1E] mt-8 ml-8 mr-8 text-[14px] font-bold">{content}</p>
-                <Link href="/" className="flex flex-row items-center gap-2 mt-auto mb-20">
-                    <div className="relative w-6 h-6">
-                        <Image 
-                            src="/icons/readMoreOne.svg"
-                            alt="read more" 
-                            fill
-                            className="object-contain"
-                        />
-                    </div>
-                    <span className="text-[#A65D4E] hover:text-[#854638] font-bold text-[14px] whitespace-nowrap">Read More</span>
-                </Link>
+                {/* Checking if logged in or not. this is where the card component has differences between both versions*/}
+                {isLoggedIn ? (
+                    <Link href="/" className="flex flex-row items-center gap-2 mt-auto mb-20">
+                        <div className="relative w-6 h-6">
+                            <Image 
+                                src="/icons/readMoreOne.svg"
+                                alt="read more" 
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <span className="text-[#A65D4E] hover:text-[#854638] font-bold text-[14px] whitespace-nowrap">Read More</span>
+                    </Link>
+                ) : (
+                    <Link href="/signin" className="flex flex-row items-center gap-2 mt-auto mb-20">
+                        <div className="relative w-6 h-6">
+                            <Image 
+                                src="/icons/readMoreOne.svg"
+                                alt="read more" 
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                        <span className="text-[#A65D4E] hover:text-[#854638] font-bold text-[14px] whitespace-nowrap">Sign In to Read More</span>
+                    </Link>
+                )}
+
 
                 {/*Footer part */}
                 <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-full h-[70px] items-center justify-between px-6">

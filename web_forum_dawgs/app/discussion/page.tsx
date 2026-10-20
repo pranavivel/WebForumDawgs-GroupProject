@@ -15,7 +15,7 @@ type DiscussionProps = {
 
 /* Page for discussion page. This is the where the user can see course discussions*/
 export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps) {
-    const testingREMOVEloggedIn = true;
+    const testingREMOVEloggedIn = false;
     return (
         <>
             <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
