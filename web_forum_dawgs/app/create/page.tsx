@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavBar from "../components/NavBar";
 import NavButton from "../components/NavButton";
 import React, { useState, SubmitEvent, ChangeEvent } from 'react';
+import DropDown from "../components/DropDown";
 
 type CreateProps = {
   title: string;
@@ -87,7 +88,7 @@ export default function Create() {
                         />
 
                     <label className="grow">Post Tag:</label>
-                    <div className="flex" id="postTagSelect">
+                    <div className="flex" id="postTag">
                         <button onClick={() => handleTags('postTag', 'Course Discussion')} type="button" className={`NavButton whitespace-nowrap bg-[#5c4837] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] h-10
                         ${formData.postTag === 'Course Discussion' ? 'border-2 border-black' : ''}`}> 
                             Course Discussion
@@ -103,7 +104,7 @@ export default function Create() {
                     </div>
 
                     <label className="grow">Course Tag:</label>
-                    <div className="flex" id="postTagSelect">
+                    <div className="flex" id="courseTag">
                         <button onClick={() => handleTags('courseTag', 'STEM')} type="button" className={`NavButton whitespace-pre-line bg-[#5c4837] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] h-10
                         ${formData.courseTag === 'STEM' ? 'border-2 border-black' : ''}`}>
                             STEM
@@ -118,7 +119,13 @@ export default function Create() {
                         </button>
                     </div>
 
-                    <div className="flex justify-end">
+                    <label className="grow">Rating:</label>
+                    <div className="flex" id="rating">
+                            <DropDown/>
+
+                    </div>
+
+                    <div className="flex justify-center gap-20 mt-10 mb-10">
                         <Link className="text-center" href="/discussion">
                             <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10">
                                 Cancel
