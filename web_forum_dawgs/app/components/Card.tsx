@@ -15,7 +15,7 @@ type CardProps = {
     postTag: string;
     courseTag: string;
     likes: number;
-    rating: number;
+    rating: string;
 }
 
 // A function to loop through the rating prop to add stars dynamically
