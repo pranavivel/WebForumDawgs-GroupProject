@@ -21,7 +21,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
             <div className="min-h-screen pb-24 w-full bg-[#F3EAD6]">
 
                 {/*Basic navbar and title for the page.*/ }
-                <NavBar isLoggedIn={testingREMOVEloggedIn} userName={"IDK :("}/>
+                <NavBar isLoggedIn={testingREMOVEloggedIn} userName={"temp"}/>
 
                 {/*title heading */}
                 <div className="flex flex-col items-center justify-center mt-[5%] gap-12">
