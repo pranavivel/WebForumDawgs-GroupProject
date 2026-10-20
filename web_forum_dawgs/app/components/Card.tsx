@@ -27,10 +27,10 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
 
   
     return (
-        <div className="bg-white p-4 rounded-[8px] shadow-md flex flex-col justify-between w-full max-w-[360px] h-[700px]">
+        <div className="bg-white p-3 rounded-[8px] shadow-md flex flex-col justify-between w-full max-w-[470px] h-[600px]">
             {/* User who posted and the tags here*/}
             <div className="flex flex-row justify-between mb-2">
-                <p className="text-[#664930] font-bold">Posted By @{postAuthor} ○ {time}</p>
+                <p className="text-[#664930] text-[8px] font-bold">Posted By @{postAuthor} ○ {time}</p>
                 <div className="flex flex-col gap-4">
                     <Pill title={postTag} textColor="text-[#664930]" pillColor="bg-[#CEC4BA]" width="w-[120px]" height="h-[20px]" />
                     <Pill title={courseTag} textColor="text-[#664930]" pillColor="bg-[#CEC4BA]" width="w-[120px]" height="h-[20px]" />
@@ -39,10 +39,10 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
             </div>
 
             {/* Title of the post , the post itself, readmore, footer part*/}
-            <div className="flex flex-col justify-center items-center">
-                <h2 className="text-[30px] mt-4 font-bold text-[#1E1E1E]">{title}</h2>
+            <div className="flex flex-col flex-grow justify-center items-center">
+                <h2 className="text-[30px] mt-6 font-bold text-center text-[#1E1E1E]">{title}</h2>
                 <p className="text-[#1E1E1E] mt-8 ml-8 mr-8 text-[14px] font-bold">{content}</p>
-                <Link href="/" className="flex flex-row items-center gap-2 mt-auto mb-4">
+                <Link href="/" className="flex flex-row items-center gap-2 mt-auto mb-20">
                     <div className="relative w-6 h-6">
                         <Image 
                             src="/icons/readMoreOne.svg"
@@ -72,7 +72,7 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
 
                             <div className="relative w-6 h-6">
                                 <Image 
-                                    src={likeToggle ? "/icons/likedBtn.svg" : "icons/likeBtn.svg"}
+                                    src={likeToggle ? "/icons/likedBtn.svg" : "/icons/likeBtn.svg"}
                                     alt="likes" 
                                     fill
                                     className="object-contain"
