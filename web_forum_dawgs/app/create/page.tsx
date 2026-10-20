@@ -7,7 +7,7 @@ import NavBar from "../components/NavBar";
 export default function Create() {
     return (
         <>
-            <NavBar isLoggedIn={true} userName="temp" activePage="Sign Up / Sign In"/>
+            <NavBar isLoggedIn={true} userName="temp"/>
 
             <div className="min-h-screen w-full bg-[#F3EAD6] ">
                 <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930]">Create Post</h1>
