@@ -18,6 +18,25 @@ type CardProps = {
     rating: number;
 }
 
+// A function to loop through the rating prop to add stars dynamically
+const starAdder = (r: number) => {
+    let stars = []
+    for (let i = 0; i < r; i++) {
+         stars.push(
+        <div key={i} className="relative w-6 h-6">
+           
+            <Image 
+                src="/icons/rating.svg"
+                alt={`rating${i}`}
+                fill
+                className="object-contain"
+            />
+        
+        </div>
+         )
+    }
+    return stars;
+}
 
 
 // Card component. This actually has course discussions and is the entire purpose of this website.
@@ -72,39 +91,61 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
 
                 {/*Footer part */}
                 <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-full h-[70px] items-center justify-between px-6">
-                    <div className="flex flex-col">
-                        <div 
-                        onClick={() => {
-                            if (likeToggle) {
-                                setLikedCount(prev => prev - 1);
-                                setLikeToggle(false);
-                            } else {
-                                setLikedCount(prev => prev + 1);
-                                setLikeToggle(true);
-                            }
-                        }} 
-                        className="flex flex-col cursor-pointer hover:opacity-70 transition "
-                        >
+                    {isLoggedIn ? (
+                        <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-full h-[70px] items-center justify-between px-6">
+                            <div className="flex flex-col">
+                                <div 
+                                onClick={() => {
+                                    if (likeToggle) {
+                                        setLikedCount(prev => prev - 1);
+                                        setLikeToggle(false);
+                                    } else {
+                                        setLikedCount(prev => prev + 1);
+                                        setLikeToggle(true);
+                                    }
+                                }} 
+                                className="flex flex-col cursor-pointer hover:opacity-70 transition "
+                                >
 
-                            <div className="relative w-6 h-6">
-                                <Image 
-                                    src={likeToggle ? "/icons/likedBtn.svg" : "/icons/likeBtn.svg"}
-                                    alt="likes" 
-                                    fill
-                                    className="object-contain"
-                                />
+                                <div className="relative w-6 h-6">
+                                    <Image 
+                                        src={likeToggle ? "/icons/likedBtn.svg" : "/icons/likeBtn.svg"}
+                                        alt="likes" 
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                                    <span className={`font-bold ${likeToggle ? 'text-[#854638]' : 'text-black'}`}> {likedCount}
+                                    </span>
+                                </div>
                             </div>
-                            <span className={`font-bold ${likeToggle ? 'text-[#854638]' : 'text-black'}`}> {likedCount}
-                            </span>
+
+                            {/*Rating Section in footer when logged in*/}
+                            <div className="flex flex-row items-center gap-1">
+                                <div className="ml-4">
+                                    <span className="text-black font-bold">Rating: </span>
+                                </div>
+                                <div className="flex flex-row gap-1">
+                                    {starAdder(rating)}
+                                </div>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div className="ml-16">
-                        <span className="text-black font-bold">Rating: {rating}</span>
-                    </div>
+                        ) : (
+                            // Rating Section in footer wwhen not looged in
+                            <div className="flex flex-row items-center gap-1">
+                                <div className="ml-6">
+                                    <span className="text-black font-bold">Rating: </span>
+                                </div>
+                                <div className="flex flex-row gap-1">
+                                    {starAdder(rating)}
+                                </div>
+                            </div>
+                     )}
+                    
+
+                   
                 </div>
             </div>
-  
         </div>
     )
 }

@@ -15,7 +15,7 @@ type DiscussionProps = {
 
 /* Page for discussion page. This is the where the user can see course discussions*/
 export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps) {
-    const testingREMOVEloggedIn = false;
+    const testingREMOVEloggedIn = true;
     return (
         <>
             <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
@@ -75,7 +75,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                         postTag={"Course Discussion"}
                         courseTag={"Humanities & Arts"}
                         likes={10}
-                        rating={4}
+                        rating={0}
                     />
                         <Card 
                         isLoggedIn={testingREMOVEloggedIn}
@@ -86,7 +86,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                         postTag={"Course Discussion"}
                         courseTag={"Humanities & Arts"}
                         likes={10}
-                        rating={4}
+                        rating={2}
                     />
                         <Card 
                         isLoggedIn={testingREMOVEloggedIn}
@@ -97,7 +97,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                         postTag={"Course Discussion"}
                         courseTag={"Humanities & Arts"}
                         likes={10}
-                        rating={4}
+                        rating={5}
                     />
                     </div>
                     
