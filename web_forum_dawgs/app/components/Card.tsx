@@ -15,13 +15,14 @@ type CardProps = {
     postTag: string;
     courseTag: string;
     likes: number;
-    rating: number;
+    rating: string;
 }
 
 // A function to loop through the rating prop to add stars dynamically
-const starAdder = (r: number) => {
+const starAdder = (r: string) => {
+    const convertedR = Number(r)
     let stars = []
-    for (let i = 0; i < r; i++) {
+    for (let i = 0; i < convertedR; i++) {
          stars.push(
         <div key={i} className="relative w-6 h-6">
            
