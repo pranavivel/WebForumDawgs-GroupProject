@@ -42,13 +42,19 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
             
             {isLoggedIn ? (
                 <>
-                <Link href="/create">
+                <Link href="/mypost">
                     <div className={pathname === "/create" ? "border-b-2 border-white pb-1" : "opacity-80"}>
                         <NavButton text="My Posts"/>
                     </div>
 
                 </Link>
-                    <NavButton text={`${userName}: Log Out`}/>
+                <Link href="/">
+                    
+                        <NavButton text={`${userName}: Log Out`}/>
+                  
+
+                </Link>
+                    
                 </>
             ) : (
                 <Link href="/signup">

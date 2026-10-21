@@ -5,26 +5,30 @@ import NavBar from "../components/NavBar";
 import NavButton from "../components/NavButton";
 import React, { useState, SubmitEvent, ChangeEvent } from 'react';
 import DropDown from "../components/DropDown";
+import {tempPosts} from "../tempData/cards";
 
 type CreateProps = {
   title: string;
   description: string;
   postTag: string;
   courseTag: string;
-  rating: number;
+  rating: string;
 };
 
 /*
     This is the create page where users create a new post
 */
-export default function Create() {
+export default function CreatePage() {
+    {/* Making the dynamic card holder thing*/}
+    const [cardHolder, setCardHolder] = useState(tempPosts)
+
     {/* Adding in the add item funcitonality requirement for deadline Interactive UI*/}
     const [formData, setFormData] = useState<CreateProps>({
         title: '',
         description: '',
         postTag: 'Course Discussion',
         courseTag: 'STEM',
-        rating: 0
+        rating: "0"
     });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,13 +48,28 @@ export default function Create() {
 
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const newCard = {
+            id: cardHolder.length + 1,
+            author: "tempUser",
+            title: formData.title,
+            time: "Just now",
+            content: formData.description,
+            postTag: formData.postTag,
+            courseTag: formData.courseTag,
+            likes: 0,
+            rating: formData.rating,
+        }
+        setCardHolder((prevCards) => [newCard, ...prevCards])
+
         setFormData({
             title: '',
             description: '',
             postTag: 'Course Discussion',
             courseTag: 'STEM',
-            rating: 0
+            rating: "0"
         })
+        
         console.log('Submitted:', formData);
     };
 
@@ -58,7 +77,7 @@ export default function Create() {
 
     return (
         <>
-            <NavBar isLoggedIn={true} userName="temp"/>
+            <NavBar isLoggedIn={true} userName="Ghost100"/>
 
             <div className="min-h-screen w-full bg-[#F3EAD6] ">
                 <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930]">Create Post</h1>
@@ -97,10 +116,7 @@ export default function Create() {
                         ${formData.postTag === 'Student Mini-Courses' ? 'border-2 border-black' : ''}`}>
                             Student Mini-Courses
                         </button>
-                        <button onClick={() => handleTags('postTag', 'Resources')} type="button" className={`NavButton whitespace-pre-line bg-[#ccaa93] text-white font-bold rounded-[15px] hover:bg-[#ad886e] active:bg-[#945951] h-10
-                         ${formData.postTag === 'Resources' ? 'border-2 border-black' : ''}`}>
-                            Resources
-                        </button>
+                       
                     </div>
 
                     <label className="grow">Course Tag:</label>
@@ -131,11 +147,11 @@ export default function Create() {
                                 Cancel
                             </button>
                         </Link>
-                        <Link className="text-center" href="/discussion">
+                        {/*<Link className="text-center" href="/discussion">*/}
                             <button type="submit" className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10">
                                 Submit
                             </button>
-                        </Link>
+                        {/*</Link>*/}
                     </div>
                 </form>
 

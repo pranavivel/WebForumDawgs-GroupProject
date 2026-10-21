@@ -5,8 +5,10 @@ import NavBar from "../components/NavBar";
 import Pill from "../components/Pill";
 import DropDown from "../components/DropDown";
 import NavButton from "../components/NavButton";
+import {tempPosts} from "../tempData/cards";
 import Image from "next/image";
 import Link from "next/link";
+
 
 // Props here
 type DiscussionProps = {
@@ -14,55 +16,18 @@ type DiscussionProps = {
   userName?: string;
 };
 
-// mapping array requiremnt for my cards here. TEMP - Backend we gonna change
-
-const tempPosts = [
-    {
-        id: 1,
-        author: "dawg123",
-        title: "CSCI 4300",
-        time: "2 hours ago",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in.",
-        postTag: "Course Discussion",
-        courseTag: "STEM",
-        likes: 10,
-        rating: 5,
-    },
-    {
-        id: 2,
-        author: "bored100",
-        title: "Digital Arts 101",
-        time: "1 year ago",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in.",
-        postTag: "Student Mini-Courses",
-        courseTag: "Humanities & Arts",
-        likes: 900,
-        rating: 1,
-    },
-    {
-        id: 3,
-        author: "rookieCookie",
-        title: "Accounting",
-        time: "20 days ago",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in.",
-        postTag: "Resources",
-        courseTag: "Business",
-        likes: 1050,
-        rating: 3,
-    }
-]
-
 
 
 /* Page for discussion page. This is the where the user can see course discussions*/
 export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps) {
     const testingREMOVEloggedIn = true;
+    isLoggedIn = testingREMOVEloggedIn
     return (
         <>
             <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
 
                 {/*Basic navbar and title for the page.*/ }
-                <NavBar isLoggedIn={testingREMOVEloggedIn} userName={"temp"}/>
+                <NavBar isLoggedIn={isLoggedIn} userName={"Ghost100"}/>
 
                 {/*title heading */}
                 <div className="max-w-300 mx-auto px-6 flex flex-col items-center justify-center mt-[5%] gap-12">
@@ -97,9 +62,16 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                     {/*Drop down and create post button*/}
                     <div className="flex flex-row gap-20 justify-center items-center">
                         <DropDown dropOption="post"/>
-                        <Link href="/create">
-                            <NavButton text="+ Create Post"/>
-                        </Link>
+                        {
+                            isLoggedIn ? (
+                                <Link href="/create">
+                                    <NavButton text="+ Create Post"/>
+                                </Link>
+                            ) : (
+                                ''
+                            )
+                        }
+
                     </div>
                     
 

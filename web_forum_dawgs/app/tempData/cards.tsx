@@ -1,0 +1,35 @@
+export const tempPosts = [
+    {
+        id: 1,
+        author: "dawg123",
+        title: "CSCI 4300",
+        time: "2 hours ago",
+        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in.",
+        postTag: "Course Discussion",
+        courseTag: "STEM",
+        likes: 10,
+        rating: "5",
+    },
+    {
+        id: 2,
+        author: "bored100",
+        title: "Digital Arts 101",
+        time: "1 year ago",
+        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in.",
+        postTag: "Student Mini-Courses",
+        courseTag: "Humanities & Arts",
+        likes: 900,
+        rating: "1",
+    },
+    {
+        id: 3,
+        author: "rookieCookie",
+        title: "Accounting",
+        time: "20 days ago",
+        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in.",
+        postTag: "Resources",
+        courseTag: "Business",
+        likes: 1050,
+        rating: "3",
+    }
+]

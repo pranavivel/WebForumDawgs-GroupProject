@@ -7,7 +7,7 @@ type DropDownProps = {
 }
 
 export default function DropDown({dropOption} : DropDownProps) {
-    const [chosenOption, setChosenOption] = useState('All');
+    const [chosenOption, setChosenOption] = useState('Please Select');
     const [isOpen,setIsOpen] = useState(false);
 
     // options for dropdown menu, value is what is stored in state, label is what is displayed to user

@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar";
 export default function Home() {
   return (
     <>
-      <NavBar isLoggedIn={true} userName={"temp"}/>
+      <NavBar isLoggedIn={true} userName={"Ghost100"}/>
 
       
       <div className="SplashImage min-h-screen w-full">
