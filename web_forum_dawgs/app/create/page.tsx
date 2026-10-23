@@ -79,15 +79,15 @@ export default function CreatePage() {
         <>
             <NavBar isLoggedIn={true} userName="Ghost100"/>
 
-            <div className="min-h-screen w-full bg-[#F3EAD6] ">
-                <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930]">Create Post</h1>
+            <div className="min-h-screen w-full bg-[#F3EAD6] max-sm:pb-8">
+                <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930] max-sm:text-3xl">Create Post</h1>
 
                 
-                <form onSubmit={handleSubmit} className="max-w-[600px] mx-auto flex flex-col mt-[2%] text-2xl text-[#664930] px-4">
+                <form onSubmit={handleSubmit} className="max-w-[600px] mx-auto flex flex-col mt-[2%] text-2xl text-[#664930] px-4 max-sm:w-full max-sm:max-w-[340px] max-sm:mt-5 max-sm:text-base">
 
                     <label className="grow mb-1" htmlFor="title">Title:</label>
                     <input 
-                        className="bg-white border-10 rounded-xl border-white shadow-lg mb-5" 
+                        className="bg-white border-10 rounded-xl border-white shadow-lg mb-5 max-sm:w-full max-sm:min-w-0 max-sm:h-11 max-sm:mb-4 max-sm:text-base"
                         name="title" 
                         type="text" 
                         id="title"
@@ -98,7 +98,7 @@ export default function CreatePage() {
 
                     <label className="grow mb-1" htmlFor="description">Description:</label>
                     <textarea 
-                        className="bg-white border-10 rounded-xl border-white shadow-lg h-60 mb-5" 
+                        className="bg-white border-10 rounded-xl border-white shadow-lg h-60 mb-5 max-sm:w-full max-sm:min-w-0 max-sm:h-36 max-sm:mb-4 max-sm:text-base max-sm:whitespace-pre-wrap max-sm:break-words"
                         name="description" 
                         id="description"
                         value={formData.description}
@@ -107,12 +107,14 @@ export default function CreatePage() {
                         />
 
                     <label className="grow">Post Tag:</label>
-                    <div className="flex" id="postTag">
+                    <div className="flex max-sm:flex-wrap max-sm:gap-2 max-sm:mt-1 max-sm:mb-4" id="postTag">
                         <button onClick={() => handleTags('postTag', 'Course Discussion')} type="button" className={`NavButton whitespace-nowrap bg-[#5c4837] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] h-10
-                        ${formData.postTag === 'Course Discussion' ? 'border-2 border-black' : ''}`}> 
+                        max-sm:!m-0 max-sm:!w-auto max-sm:max-w-full max-sm:!h-auto max-sm:min-h-9 max-sm:!px-3 max-sm:!py-2 max-sm:!text-sm max-sm:!leading-tight max-sm:!whitespace-normal max-sm:break-words
+                                ${formData.postTag === 'Course Discussion' ? 'border-2 border-black' : ''}`}> 
                             Course Discussion
                         </button>
                         <button onClick={() => handleTags('postTag', 'Student Mini-Courses')} type="button" className={`NavButton whitespace-nowrap bg-[#667f83] text-white font-bold rounded-[15px] hover:bg-[#466064] active:bg-[#324f53] h-10
+                        max-sm:!m-0 max-sm:!w-auto max-sm:max-w-full max-sm:!h-auto max-sm:min-h-9 max-sm:!px-3 max-sm:!py-2 max-sm:!text-sm max-sm:!leading-tight max-sm:!whitespace-normal max-sm:break-words
                         ${formData.postTag === 'Student Mini-Courses' ? 'border-2 border-black' : ''}`}>
                             Student Mini-Courses
                         </button>
@@ -120,35 +122,39 @@ export default function CreatePage() {
                     </div>
 
                     <label className="grow">Course Tag:</label>
-                    <div className="flex" id="courseTag">
+                    <div className="flex max-sm:flex-wrap max-sm:gap-2 max-sm:mt-1 max-sm:mb-4" id="courseTag">
                         <button onClick={() => handleTags('courseTag', 'STEM')} type="button" className={`NavButton whitespace-pre-line bg-[#5c4837] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] h-10
+                        max-sm:!m-0 max-sm:!w-auto max-sm:max-w-full max-sm:!h-auto max-sm:min-h-9 max-sm:!px-3 max-sm:!py-2 max-sm:!text-sm max-sm:!leading-tight max-sm:!whitespace-normal max-sm:break-words
+                            
                         ${formData.courseTag === 'STEM' ? 'border-2 border-black' : ''}`}>
                             STEM
                         </button>
                         <button onClick={() => handleTags('courseTag', 'Business')} type="button" className={`NavButton whitespace-pre-line bg-[#667f83] text-white font-bold rounded-[15px] hover:bg-[#466064] active:bg-[#324f53] h-10
-                        ${formData.courseTag === 'Business' ? 'border-2 border-black' : ''}`}>
+                        max-sm:!m-0 max-sm:!w-auto max-sm:max-w-full max-sm:!h-auto max-sm:min-h-9 max-sm:!px-3 max-sm:!py-2 max-sm:!text-sm max-sm:!leading-tight max-sm:!whitespace-normal max-sm:break-words
+                                ${formData.courseTag === 'Business' ? 'border-2 border-black' : ''}`}>
                             Business
                         </button>
                         <button onClick={() => handleTags('courseTag', 'Humanities & Arts')} type="button" className={`NavButton whitespace-pre-line bg-[#ccaa93] text-white font-bold rounded-[15px] hover:bg-[#ad886e] active:bg-[#945951] h-10
-                        ${formData.courseTag === 'Humanities & Arts' ? 'border-2 border-black' : ''}`}>
+                        max-sm:!m-0 max-sm:!w-auto max-sm:max-w-full max-sm:!h-auto max-sm:min-h-9 max-sm:!px-3 max-sm:!py-2 max-sm:!text-sm max-sm:!leading-tight max-sm:!whitespace-normal max-sm:break-words
+                            ${formData.courseTag === 'Humanities & Arts' ? 'border-2 border-black' : ''}`}>
                             Humanities & Arts
                         </button>
                     </div>
 
                     <label className="grow">Rating:</label>
-                    <div className="flex" id="rating">
+                    <div className="flex max-sm:mt-1" id="rating">
                             <DropDown dropOption="rating"/>
 
                     </div>
 
-                    <div className="flex justify-center gap-20 mt-10 mb-10">
+                    <div className="flex justify-center gap-20 mt-10 mb-10 max-sm:flex-wrap max-sm:gap-4 max-sm:mt-6 max-sm:mb-2">
                         <Link className="text-center" href="/discussion">
-                            <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10">
+                            <button type="button" className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10 max-sm:!m-0 max-sm:!text-base">
                                 Cancel
                             </button>
                         </Link>
                         {/*<Link className="text-center" href="/discussion">*/}
-                            <button type="submit" className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10">
+                            <button type="submit" className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10 max-sm:!m-0 max-sm:!text-base">
                                 Submit
                             </button>
                         {/*</Link>*/}
