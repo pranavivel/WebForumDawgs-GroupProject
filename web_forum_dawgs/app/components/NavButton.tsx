@@ -5,12 +5,13 @@
 type NavButtonProps = {
   text: string;
   onClick?: () => void
+  rounded?: string;
 };
 
 //This is the NavButton component, which is a functional component that takes in props of type NavButtonProps
-export default function NavButton({ text, onClick }: NavButtonProps) {
+export default function NavButton({ text, onClick, rounded="rounded-[15px]"}: NavButtonProps) {
   return (
-    <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626]" onClick={onClick}>
+    <button className={`NavButton whitespace-pre-line bg-[#997E67] text-white font-bold ${rounded} hover:bg-[#854638] active:bg-[#693626]`} onClick={onClick}>
       {text}
     </button>
   );

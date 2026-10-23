@@ -8,6 +8,8 @@ import {useState} from 'react';
 
 type CardProps = {
     isLoggedIn: boolean;
+    isMyPost?: boolean;
+
     postAuthor: string;
     title: string;
     time: string;
@@ -41,7 +43,7 @@ const starAdder = (r: string) => {
 
 
 // Card component. This actually has course discussions and is the entire purpose of this website.
-export default function Card({ isLoggedIn, postAuthor, title, time, content,postTag, courseTag, likes, rating }: CardProps) {
+export default function Card({ isLoggedIn, isMyPost, postAuthor, title, time, content,postTag, courseTag, likes, rating }: CardProps) {
     const [likedCount, setLikedCount] = useState(likes);
     const [likeToggle, setLikeToggle] = useState(false);
 
@@ -75,7 +77,9 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
                         </div>
                         <span className="text-[#A65D4E] hover:text-[#854638] font-bold text-[14px] whitespace-nowrap">Read More</span>
                     </Link>
-                ) : (
+                ) : 
+                (
+
                     <Link href="/signin" className="flex flex-row items-center gap-2 mt-auto mb-20">
                         <div className="relative w-6 h-6">
                             <Image 
@@ -92,7 +96,7 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
 
                 {/*Footer part */}
                 <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-full h-[70px] items-center justify-between px-6">
-                    {isLoggedIn ? (
+                    { isLoggedIn ? (
                         <div className="bg-[#CEC4BA] p-4 rounded-[8px] flex flex-row w-full h-[70px] items-center justify-between px-6">
                             <div className="flex flex-col">
                                 <div 
@@ -141,11 +145,35 @@ export default function Card({ isLoggedIn, postAuthor, title, time, content,post
                                     {starAdder(rating)}
                                 </div>
                             </div>
-                     )}
+                     ) }
                     
 
                    
                 </div>
+                {/*Icon part for remove delete*/}
+                {isMyPost  ? (
+                            <div className="flex flex-row self-end w-fit gap-4 mt-[16px]">
+                                <div className=" relative w-6 h-6 " >
+                                    <Image 
+                                        src={"/icons/editCard.svg"}
+                                        alt="likes" 
+                                        fill
+                                        className="object-contain "
+                                    />
+                                </div>
+                                <div className=" relative w-6 h-6 ">
+                                     <Image 
+                                        src={"/icons/deleteCard.svg"}
+                                        alt="likes" 
+                                        fill
+                                        className="object-contain "
+                                    />
+                                </div>
+                                   
+                            </div>
+                            
+                            
+                        ) :('')}
             </div>
         </div>
     )
