@@ -22,7 +22,7 @@ export default function AuthInputField({ type, inputLabel, showPassword }: Input
 
     return (
         <>
-            <div className="flex flex-col gap-4 w-[375px]">
+            <div className="mx-auto flex w-full max-w-[300px] flex-col gap-[10px] sm:mx-0 sm:max-w-[375px] sm:gap-4">
                 <div className="flex justify-between items-center h-[24px]">
                     <label className="text-[#664930] font-bold text-sm" htmlFor={inputLabel}>
                     {inputLabel}
@@ -47,7 +47,7 @@ export default function AuthInputField({ type, inputLabel, showPassword }: Input
                         )}
                 </div>
                {/*Input field */}
-                <div className="flex flex-row items-center border-2 border-[#664930] rounded-[20px] w-[375px] h-[76px] px-2 py-1 bg-[#CCBEB1]">
+                <div className="flex h-[52px] w-full flex-row items-center rounded-[20px] border-2 border-[#664930] bg-[#CCBEB1] px-2 py-1 sm:h-[76px] sm:w-[300px]">
                     <input
                         type={inputType}
                         id={inputLabel}

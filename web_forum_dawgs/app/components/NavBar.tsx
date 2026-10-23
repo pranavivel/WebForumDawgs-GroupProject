@@ -17,10 +17,10 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
   return (
 
     // removed tailwind rounded 8px so no white is showing on corners
-    <nav className="flex w-full flex-row h-[80px] justify-between items-center p-1 bg-[#664930] text-white"> 
+    <nav className="flex w-full flex-col items-center justify-between gap-2 bg-[#664930] px-3 py-2 text-white sm:h-[80px] sm:flex-row sm:justify-between sm:gap-0 sm:p-1"> 
         {/*Values for height and hex pulled from figma */}
 
-        <div className=" relative h-[100%] aspect-square ml-10">
+        <div className="relative h-[64px] aspect-square shrink-0 sm:ml-10 sm:h-full">
             <Link href="/" className="relative block h-full w-full">
                 <Image 
                 src="/images/website_logo.png"
@@ -32,7 +32,7 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
             </Link>
         </div>
     {/* Holds JS buttom components, see Fimga button components for CSS and behaviour*/}
-        <div className="flex flex-row gap-4 mr-10">
+        <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:mr-10 sm:w-auto sm:justify-end sm:gap-4">
             {/*Always shows discussion on navbar regardless of login*/}
             <Link href="/discussion">
                 <div className={pathname === "/discussion" ? "border-b-2 border-white pb-1" : "opacity-80"}>
@@ -43,7 +43,7 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
             {isLoggedIn ? (
                 <>
                 <Link href="/mypost">
-                    <div className={pathname === "/create" ? "border-b-2 border-white pb-1" : "opacity-80"}>
+                    <div className={pathname === "/mypost" ? "border-b-2 border-white pb-1" : "opacity-80"}>
                         <NavButton text="My Posts"/>
                     </div>
 
