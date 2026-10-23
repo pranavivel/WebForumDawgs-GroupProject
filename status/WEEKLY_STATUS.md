@@ -32,16 +32,27 @@ Upload image to `/images/` and link it below:
 ## Progress Summary - **Week #2:**  Monday, October 19th -  Sunday, October 25th
 
 ** What we completed this week:**  
-- 
--  
+- Finished a lot of tailwind css for website formatting
+- Made it so that the website can be mobile friendly
+- Made almost all buttons interactive and functional
+- Made the form console.log
+- Made star rating update on card and also like toggle
+- Made a temporary user login state so that we can simulate the signin or signup button actually having a user log in
+- Made all routes that we'll need on our website
 
 ** Issues / blockers encountered:**  
--  
--  
+-  Device size with tailwind was kind of hard
+-  Getting the like toggle and star ratings was a bit hard
+-  Finding a way to fix merge conflicts
+-  Figuring out how to do auth without always having to change variables in discussion and splash
+-  Realized needed way to do api representation on our cards, we talked it out tho
 
 ** Goals for next week:**  
--  
--  
+-  begin the search bar feature where we use tags as a requirement in the search
+-  Study up on backend so we can make a card component appear on discussions page
+-  Fix css on mypost page
+-  Make read me button when signed in have a popup with scroll down to see full description
+-  Work mostly in discussion page as that is where the most complex functionality is
 
 ---
 
