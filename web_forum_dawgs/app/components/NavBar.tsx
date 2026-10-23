@@ -50,7 +50,7 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
                 </Link>
                 <Link href="/">
                     
-                        <NavButton text={`${userName}: Log Out`}/>
+                    <NavButton text={`${userName}: Log Out`} onClick={() => {localStorage.setItem("isLoggedIn", "false"); if (pathname === "/") location.reload();}}/>
                   
 
                 </Link>
@@ -66,7 +66,6 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
             )}
         </div>
     </nav>
-
 
 
   );

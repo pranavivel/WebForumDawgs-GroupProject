@@ -1,4 +1,7 @@
-import Link from "next/link";
+"use client"
+
+import { useRouter } from "next/navigation";
+// import Link from "next/link";
 import AuthInputField from "../components/AuthInputField";
 import NavBar from "../components/NavBar";
 
@@ -6,6 +9,7 @@ import NavBar from "../components/NavBar";
     This is the signup page where the user creates an account
 */
 export default function SignUp() {
+    const router = useRouter();
     return (
         <>
             <NavBar isLoggedIn={false}/>
@@ -19,11 +23,9 @@ export default function SignUp() {
                     <AuthInputField type="text" inputLabel="Email" />
                     <AuthInputField type="text" inputLabel="Username" />
                     <AuthInputField type="password" inputLabel="Password" showPassword={true} />
-                    <Link href="/discussion">
-                        <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-50 h-10">
-                            Sign Up
-                        </button>
-                    </Link>
+                    <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-50 h-10" onClick={() => {localStorage.setItem("isLoggedIn", "true"); router.push("/discussion")}}>
+                        Sign Up
+                    </button>
                 </div>
 
             </div>

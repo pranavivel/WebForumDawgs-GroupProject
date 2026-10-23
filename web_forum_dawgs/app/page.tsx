@@ -1,10 +1,25 @@
+"use client"
 
+import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 
 export default function Home() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === null) {
+      localStorage.setItem("isLoggedIn", "false");
+    }
+    if (localStorage.getItem("isLoggedIn") === "false") {
+        setIsLoggedIn(false);
+    } else {
+        setIsLoggedIn(true);
+    }
+  }, []);
+
   return (
     <>
-      <NavBar isLoggedIn={true} userName={"Ghost100"}/>
+      <NavBar isLoggedIn={isLoggedIn} userName={"Ghost100"}/>
 
       
       <div className="SplashImage min-h-screen w-full">

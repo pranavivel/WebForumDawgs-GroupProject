@@ -1,12 +1,17 @@
+"use client"
+
+import { useRouter } from "next/navigation"
 import NavBar from "../components/NavBar";
 import AuthInputField from "../components/AuthInputField";
-import NavButton from "../components/NavButton";
-import Link from "next/dist/client/link";
+// import NavButton from "../components/NavButton";
+// import Link from "next/dist/client/link";
 
 /*
     This is the sign in page where the user logs into their  account
 */
 export default function SignIn() {
+    const router = useRouter();
+
     return (
         <>
             <NavBar isLoggedIn={false}/>
@@ -19,11 +24,9 @@ export default function SignIn() {
                 <div className="flex flex-col items-center justify-center mt-[5%] gap-24">
                     <AuthInputField type="text" inputLabel="Username" />
                     <AuthInputField type="password" inputLabel="Password" showPassword={true} />
-                    <Link href="/discussion">
-                        <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-50 h-10">
-                            Sign In
-                        </button>
-                    </Link>
+                    <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-50 h-10" onClick={() => {localStorage.setItem("isLoggedIn", "true"); router.push("/discussion")}}>
+                        Sign In
+                    </button>
                 </div>
 
             </div>

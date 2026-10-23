@@ -1,4 +1,6 @@
+"use client"
 
+import { useState, useEffect } from "react";
 
 import Card from "../components/Card";
 import NavBar from "../components/NavBar";
@@ -12,16 +14,30 @@ import Link from "next/link";
 
 // Props here
 type DiscussionProps = {
-  isLoggedIn: boolean;
+//   isLoggedIn: boolean;
   userName?: string;
 };
 
 
 
 /* Page for discussion page. This is the where the user can see course discussions*/
-export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps) {
+export default function DiscussionPage({ /*isLoggedIn,*/ userName }: DiscussionProps) {
     const testingREMOVEloggedIn = true;
-    isLoggedIn = testingREMOVEloggedIn
+    // isLoggedIn = testingREMOVEloggedIn
+
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  useEffect(() => {
+    if (localStorage.getItem("isLoggedIn") === null) {
+      localStorage.setItem("isLoggedIn", "false");
+    }
+    if (localStorage.getItem("isLoggedIn") === "false") {
+        setIsLoggedIn(false);
+    } else {
+        setIsLoggedIn(true);
+    }
+  }, []);
+
+
     return (
         <>
             <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
@@ -83,7 +99,7 @@ export default function DiscussionPage({ isLoggedIn, userName }: DiscussionProps
                                 return (
                                     <Card
                                     key={card.id}
-                                    isLoggedIn={testingREMOVEloggedIn}
+                                    isLoggedIn={isLoggedIn}
                                     postAuthor={card.author}
                                     title={card.title}
                                     time={card.time}
