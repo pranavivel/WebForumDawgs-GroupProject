@@ -16,15 +16,16 @@ import { useRouter } from "next/navigation";
 export default function MyPostsPage() {
     const router = useRouter();
 
+    const [userName, setUserName] = useState<string>("user");
+    const [posts, setPosts] = useState();
+
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn") !== "true") {
             router.push("/");
         }
+        let grabbedUserName = localStorage.getItem("username");
+        if (grabbedUserName !== null) setUserName(grabbedUserName);
     }, []);
-
-    const [userName, setUserName] = useState<string>("user");
-    const [posts, setPosts] = useState();
-
 
     return (
         <>

@@ -28,6 +28,8 @@ export default function DiscussionPage() {
         } else {
             setIsLoggedIn(true);
         }
+        let grabbedUserName = localStorage.getItem("username");
+        if (grabbedUserName !== null) setUserName(grabbedUserName);
     }, []);
 
     return (

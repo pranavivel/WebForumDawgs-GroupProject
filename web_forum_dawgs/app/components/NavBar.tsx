@@ -50,7 +50,7 @@ export default function NavBar({ isLoggedIn, userName}: NavBarProps) {
                 </Link>
                 <Link href="/">
                     
-                    <NavButton text={`${userName}: Log Out`} onClick={() => {localStorage.setItem("isLoggedIn", "false"); if (pathname === "/") location.reload();}}/>
+                    <NavButton text={`${userName}: Log Out`} onClick={() => {localStorage.setItem("isLoggedIn", "false"); localStorage.removeItem("username"); if (pathname === "/") location.reload();}}/>
                   
 
                 </Link>

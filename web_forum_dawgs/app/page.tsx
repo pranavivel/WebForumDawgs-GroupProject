@@ -17,6 +17,8 @@ export default function Home() {
     } else {
         setIsLoggedIn(true);
     }
+    let grabbedUserName = localStorage.getItem("username");
+    if (grabbedUserName !== null) setUserName(grabbedUserName);
   }, []);
 
   return (

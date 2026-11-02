@@ -25,7 +25,9 @@ export default function SignIn() {
     }, []);
 
     const handleSignin = () => {
+        // should call api/signin to handle sign in, and if successful set  isLoggedIn, username, and auth token
         localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("username", username);
         router.push("/discussion");
     }
 
