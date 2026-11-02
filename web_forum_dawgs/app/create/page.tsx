@@ -6,6 +6,7 @@ import NavButton from "../components/NavButton";
 import React, { useState, SubmitEvent, ChangeEvent } from 'react';
 import DropDown from "../components/DropDown";
 import {tempPosts} from "../tempData/cards";
+import { useRouter } from "next/navigation";
 
 type CreateProps = {
   title: string;
@@ -19,6 +20,12 @@ type CreateProps = {
     This is the create page where users create a new post
 */
 export default function CreatePage() {
+    const router = useRouter();
+
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        router.push("/");
+    }
+
     {/* Making the dynamic card holder thing*/}
     const [cardHolder, setCardHolder] = useState(tempPosts)
 
