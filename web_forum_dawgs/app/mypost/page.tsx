@@ -10,9 +10,16 @@ import Card from "../components/Card";
 
 import {tempPosts} from "../tempData/cards";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 export default function MyPostsPage() {
+    const router = useRouter();
+
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        router.push("/");
+    }
+
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
       useEffect(() => {
         if (localStorage.getItem("isLoggedIn") === null) {
