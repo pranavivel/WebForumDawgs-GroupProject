@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import NavBar from "../components/NavBar";
 import AuthInputField from "../components/AuthInputField";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import NavButton from "../components/NavButton";
 // import Link from "next/dist/client/link";
 
@@ -14,11 +14,20 @@ import { useEffect } from "react";
 export default function SignIn() {
     const router = useRouter();
 
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<string>("");
+
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn") === "true") {
             router.push("/");
         }
     }, []);
+
+    const handleSignin = () => {
+        localStorage.setItem("isLoggedIn", "true");
+        router.push("/discussion");
+    }
 
     return (
         <>
@@ -35,9 +44,12 @@ export default function SignIn() {
             
 
                 <div className="mt-4 flex flex-col items-center justify-center gap-5 sm:mt-[5%] sm:gap-24">
-                    <AuthInputField type="text" inputLabel="Username" />
-                    <AuthInputField type="password" inputLabel="Password" showPassword={true} />
-                    <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-50 h-10" onClick={() => {localStorage.setItem("isLoggedIn", "true"); router.push("/discussion")}}>
+                    <AuthInputField setFunction={setUsername} type="text" inputLabel="Username" />
+                    <AuthInputField setFunction={setPassword} type="password" inputLabel="Password" showPassword={true} />
+                    <div className="text-red-400">
+                        {error}
+                    </div>
+                    <button className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-50 h-10" onClick={handleSignin}>
                         Sign In
                     </button>
                 </div>

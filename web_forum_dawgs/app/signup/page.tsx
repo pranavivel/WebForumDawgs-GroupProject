@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthInputField from "../components/AuthInputField";
 import NavBar from "../components/NavBar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /*
     This is the signup page where the user creates an account
@@ -12,11 +12,21 @@ import { useEffect } from "react";
 export default function SignUp() {
     const router = useRouter();
 
+    const [email, setEmail] = useState<string>("");
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<string>("Errorrr");
+
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn") === "true") {
             router.push("/");
         }
     }, []);
+
+    const handleSignup = () => {
+        localStorage.setItem("isLoggedIn", "true");
+        router.push("/discussion");
+    }
 
     return (
         <>
@@ -33,10 +43,13 @@ export default function SignUp() {
             
 
                 <div className="mt-4 flex flex-col items-center justify-center gap-5 sm:mt-[5%] sm:gap-24">
-                    <AuthInputField type="text" inputLabel="Email" />
-                    <AuthInputField type="text" inputLabel="Username" />
-                    <AuthInputField type="password" inputLabel="Password" showPassword={true} />
-                    <button className="NavButton h-10 w-50 whitespace-pre-line rounded-[15px] bg-[#997E67] font-bold text-white hover:bg-[#854638] active:bg-[#693626]" onClick={() => {localStorage.setItem("isLoggedIn", "true"); router.push("/discussion")}}>
+                    <AuthInputField setFunction={setEmail} type="text" inputLabel="Email" />
+                    <AuthInputField setFunction={setUsername} type="text" inputLabel="Username" />
+                    <AuthInputField setFunction={setPassword} type="password" inputLabel="Password" showPassword={true} />
+                    <div className="text-red-400">
+                        {error}
+                    </div>
+                    <button className="NavButton h-10 w-50 whitespace-pre-line rounded-[15px] bg-[#997E67] font-bold text-white hover:bg-[#854638] active:bg-[#693626]" onClick={handleSignup}>
                         Sign Up
                     </button>
                 </div>

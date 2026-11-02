@@ -23,6 +23,8 @@ export default function MyPostsPage() {
     }, []);
 
     const [userName, setUserName] = useState<string>("user");
+    const [posts, setPosts] = useState();
+
 
     return (
         <>

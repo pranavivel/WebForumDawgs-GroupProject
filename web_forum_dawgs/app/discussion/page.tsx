@@ -14,11 +14,10 @@ import Link from "next/link";
 
 /* Page for discussion page. This is the where the user can see course discussions*/
 export default function DiscussionPage() {
-    const testingREMOVEloggedIn = true;
-    // isLoggedIn = testingREMOVEloggedIn
 
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [userName, setUserName] = useState<string>("user");
+    const [posts, setPosts] = useState();
 
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn") === null) {
