@@ -15,7 +15,7 @@ export default function SignUp() {
     const [email, setEmail] = useState<string>("");
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [error, setError] = useState<string>("Errorrr");
+    const [error, setError] = useState<string>("");
 
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn") === "true") {
