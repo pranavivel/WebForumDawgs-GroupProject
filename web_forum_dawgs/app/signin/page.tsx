@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import NavBar from "../components/NavBar";
 import AuthInputField from "../components/AuthInputField";
 import Link from "next/link";
+import { useEffect } from "react";
 // import NavButton from "../components/NavButton";
 // import Link from "next/dist/client/link";
 
@@ -13,9 +14,11 @@ import Link from "next/link";
 export default function SignIn() {
     const router = useRouter();
 
-    if (localStorage.getItem("isLoggedIn") === "true") {
-        router.push("/discussion");
-    }
+    useEffect(() => {
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            router.push("/");
+        }
+    }, []);
 
     return (
         <>

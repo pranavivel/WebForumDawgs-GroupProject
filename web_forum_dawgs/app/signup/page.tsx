@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthInputField from "../components/AuthInputField";
 import NavBar from "../components/NavBar";
+import { useEffect } from "react";
 
 /*
     This is the signup page where the user creates an account
@@ -11,9 +12,11 @@ import NavBar from "../components/NavBar";
 export default function SignUp() {
     const router = useRouter();
 
-    if (localStorage.getItem("isLoggedIn") === "true") {
-        router.push("/discussion");
-    }
+    useEffect(() => {
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            router.push("/");
+        }
+    }, []);
 
     return (
         <>

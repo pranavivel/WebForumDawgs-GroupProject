@@ -12,38 +12,31 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-// Props here
-type DiscussionProps = {
-//   isLoggedIn: boolean;
-  userName?: string;
-};
-
-
-
 /* Page for discussion page. This is the where the user can see course discussions*/
-export default function DiscussionPage({ /*isLoggedIn,*/ userName }: DiscussionProps) {
+export default function DiscussionPage() {
     const testingREMOVEloggedIn = true;
     // isLoggedIn = testingREMOVEloggedIn
 
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  useEffect(() => {
-    if (localStorage.getItem("isLoggedIn") === null) {
-      localStorage.setItem("isLoggedIn", "false");
-    }
-    if (localStorage.getItem("isLoggedIn") === "false") {
-        setIsLoggedIn(false);
-    } else {
-        setIsLoggedIn(true);
-    }
-  }, []);
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+    const [userName, setUserName] = useState<string>("user");
 
+    useEffect(() => {
+        if (localStorage.getItem("isLoggedIn") === null) {
+        localStorage.setItem("isLoggedIn", "false");
+        }
+        if (localStorage.getItem("isLoggedIn") === "false") {
+            setIsLoggedIn(false);
+        } else {
+            setIsLoggedIn(true);
+        }
+    }, []);
 
     return (
         <>
             <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
 
                 {/*Basic navbar and title for the page.*/ }
-                <NavBar isLoggedIn={isLoggedIn} userName={"Ghost100"}/>
+                <NavBar isLoggedIn={isLoggedIn} userName={userName}/>
 
                 {/*title heading */}
                 <div className="mx-auto mt-6 flex w-full max-w-[1200px] flex-col items-center justify-center gap-6 px-4 sm:mt-[5%] sm:gap-12 sm:px-6">

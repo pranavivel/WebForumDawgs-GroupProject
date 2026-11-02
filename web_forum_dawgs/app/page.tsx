@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 export default function Home() {
 
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [userName, setUserName] = useState<string>("user");
+
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === null) {
       localStorage.setItem("isLoggedIn", "false");
@@ -19,8 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <NavBar isLoggedIn={isLoggedIn} userName={"Ghost100"}/>
-
+      <NavBar isLoggedIn={isLoggedIn} userName={userName}/>
       
       <div className="SplashImage min-h-screen w-full max-sm:px-4">
         <div className="max-sm:mx-auto max-sm:w-full max-sm:max-w-[360px] max-sm:min-w-0">
