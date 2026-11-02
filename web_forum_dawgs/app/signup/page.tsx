@@ -10,6 +10,11 @@ import NavBar from "../components/NavBar";
 */
 export default function SignUp() {
     const router = useRouter();
+
+    if (localStorage.getItem("isLoggedIn") === "true") {
+        router.push("/discussion");
+    }
+
     return (
         <>
             <NavBar isLoggedIn={false}/>

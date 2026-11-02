@@ -13,6 +13,10 @@ import Link from "next/link";
 export default function SignIn() {
     const router = useRouter();
 
+    if (localStorage.getItem("isLoggedIn") === "true") {
+        router.push("/discussion");
+    }
+
     return (
         <>
             <NavBar isLoggedIn={false}/>
