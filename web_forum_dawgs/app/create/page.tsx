@@ -3,9 +3,10 @@
 import Link from "next/link";
 import NavBar from "../components/NavBar";
 import NavButton from "../components/NavButton";
-import React, { useState, SubmitEvent, ChangeEvent } from 'react';
+import React, { useState, SubmitEvent, ChangeEvent, useEffect } from 'react';
 import DropDown from "../components/DropDown";
 import {tempPosts} from "../tempData/cards";
+import { useRouter } from "next/navigation";
 
 type CreateProps = {
   title: string;
@@ -19,6 +20,18 @@ type CreateProps = {
     This is the create page where users create a new post
 */
 export default function CreatePage() {
+    const router = useRouter();
+
+    const [userName, setUserName] = useState<string>("user");
+
+    useEffect(() => {
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            router.push("/");
+        }
+        let grabbedUserName = localStorage.getItem("username");
+        if (grabbedUserName !== null) setUserName(grabbedUserName);
+    }, []);
+
     {/* Making the dynamic card holder thing*/}
     const [cardHolder, setCardHolder] = useState(tempPosts)
 
@@ -77,7 +90,7 @@ export default function CreatePage() {
 
     return (
         <>
-            <NavBar isLoggedIn={true} userName="Ghost100"/>
+            <NavBar isLoggedIn={true} userName={userName}/>
 
             <div className="min-h-screen w-full bg-[#F3EAD6] max-sm:pb-8">
                 <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930] max-sm:text-3xl">Create Post</h1>

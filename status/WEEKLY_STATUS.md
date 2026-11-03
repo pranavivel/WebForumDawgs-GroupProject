@@ -59,16 +59,19 @@ Upload image to `/images/` and link it below:
 ## Progress Summary - **Week #3:**  Monday, October 26th -  Sunday, November 1st
 
 ** What we completed this week:**  
-- 
--  
+- Tyler working on fixing frontend to backend code
+- Conner working on figuring out how to use MongoDB
+- I (Pranavi) am working on setting up a mongodb connection
 
 ** Issues / blockers encountered:**  
--  
--  
+-  MongoDB connection setup was erroring out because our home page.tsx is client side so I (Pranavi) had to make it a GET to get success message to print.
+-  Figuring out how to organize backend and fix our front end for all of us.
 
 ** Goals for next week:**  
--  
--  
+-  Get add/delete set up for cards
+-  Start on api for resource cards
+-  Start on search feature
+-  We will split up work since they are more major components.
 
 ---
 

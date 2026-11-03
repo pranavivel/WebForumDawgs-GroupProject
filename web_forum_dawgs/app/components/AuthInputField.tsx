@@ -4,13 +4,14 @@ import React, { useState, ChangeEvent } from 'react';
 import Image from 'next/image';
 // Props
 type InputProps = {
+  setFunction: (e: string) => void;
   type: string;
   inputLabel: string;
   showPassword?: boolean;
 };
 
 /* Component for any log in input fields. It has the show password thing.*/
-export default function AuthInputField({ type, inputLabel, showPassword }: InputProps) {
+export default function AuthInputField({ setFunction, type, inputLabel, showPassword }: InputProps) {
     const [value, setValue] = useState('');
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     // Find input type of this component based on if show password and it is type password. Basically it changes between type text and password
@@ -18,6 +19,7 @@ export default function AuthInputField({ type, inputLabel, showPassword }: Input
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
+        setFunction(e.target.value);
     };
 
     return (

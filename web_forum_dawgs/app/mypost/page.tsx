@@ -10,25 +10,28 @@ import Card from "../components/Card";
 
 import {tempPosts} from "../tempData/cards";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 export default function MyPostsPage() {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-      useEffect(() => {
-        if (localStorage.getItem("isLoggedIn") === null) {
-          localStorage.setItem("isLoggedIn", "false");
+    const router = useRouter();
+
+    const [userName, setUserName] = useState<string>("user");
+    const [posts, setPosts] = useState();
+
+    useEffect(() => {
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            router.push("/");
         }
-        if (localStorage.getItem("isLoggedIn") === "false") {
-            setIsLoggedIn(false);
-        } else {
-            setIsLoggedIn(true);
-        }
-      }, []);
+        let grabbedUserName = localStorage.getItem("username");
+        if (grabbedUserName !== null) setUserName(grabbedUserName);
+    }, []);
+
     return (
         <>
         <div className="min-h-screen pb-24 w-full bg-[#F3EAD6] overflow-x-hidden">
             {/* navbar and title for the page.*/ }
-                <NavBar isLoggedIn={true} userName={"Ghost100"}/>
+                <NavBar isLoggedIn={true} userName={userName}/>
 
                 {/*title heading */}
                 <div className="max-w-300 mx-auto px-6 flex flex-col items-center justify-center mt-[5%] gap-12">
@@ -42,7 +45,7 @@ export default function MyPostsPage() {
                             return (
                                 <Card
                                 key={card.id}
-                                isLoggedIn={isLoggedIn}
+                                isLoggedIn={true}
                                 isMyPost={true}
                                 postAuthor={card.author}
                                 title={card.title}
@@ -62,15 +65,9 @@ export default function MyPostsPage() {
 
                  {/*Drop down and create post button*/}
                     <div className="fixed bottom-8 right-8">
-                        {
-                            isLoggedIn ? (
-                                <Link href="/create">
-                                    <NavButton text="+" rounded="rounded-[100px]"/>
-                                </Link>
-                            ) : (
-                                ''
-                            )
-                        }
+                            <Link href="/create">
+                                <NavButton text="+" rounded="rounded-[100px]"/>
+                            </Link>
 
                     </div>
         </div>
