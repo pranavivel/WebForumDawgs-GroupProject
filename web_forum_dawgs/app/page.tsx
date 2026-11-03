@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
+import connectMongoDB from "../config/mongodb";
 
 export default function Home() {
+  // Mongoose connection 
+  //connectMongoDB();
 
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   useEffect(() => {
