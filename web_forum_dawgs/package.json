@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "async_hooks": "^1.0.0",
+    "dev": "^0.1.5",
+    "mongodb": "^7.8.0",
+    "mongoose": "^9.11.4",
     "next": "16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0"
@@ -22,5 +26,8 @@
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }
