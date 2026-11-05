@@ -59,9 +59,9 @@ Upload image to `/images/` and link it below:
 ## Progress Summary - **Week #3:**  Monday, October 26th -  Sunday, November 1st
 
 ** What we completed this week:**  
-- Tyler working on fixing frontend to backend code
-- Conner working on figuring out how to use MongoDB
-- I (Pranavi) am working on setting up a mongodb connection
+- Tyler is working on fixing frontend to backend code and seeing where we need GET, POSst, so on. Pull Request frontendCleanup
+- Conner is  working on figuring out how to use MongoDB
+- I (Pranavi) am working on setting up a mongodb connection used Pull Request: minor-changes branch to test some things
 
 ** Issues / blockers encountered:**  
 -  MongoDB connection setup was erroring out because our home page.tsx is client side so I (Pranavi) had to make it a GET to get success message to print.

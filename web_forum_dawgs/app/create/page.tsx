@@ -20,9 +20,15 @@ type CreateProps = {
     This is the create page where users create a new post
 */
 export default function CreatePage() {
+
     const router = useRouter();
 
     const [userName, setUserName] = useState<string>("user");
+
+    {/* State for handling form submission and validation */}
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
 
     useEffect(() => {
         if (localStorage.getItem("isLoggedIn") !== "true") {
@@ -34,6 +40,7 @@ export default function CreatePage() {
 
     {/* Making the dynamic card holder thing*/}
     const [cardHolder, setCardHolder] = useState(tempPosts)
+
 
     {/* Adding in the add item funcitonality requirement for deadline Interactive UI*/}
     const [formData, setFormData] = useState<CreateProps>({
@@ -59,41 +66,61 @@ export default function CreatePage() {
         }))
     }
 
-    const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const newCard = {
-            id: cardHolder.length + 1,
-            author: "tempUser",
-            title: formData.title,
-            time: "Just now",
-            content: formData.description,
-            postTag: formData.postTag,
-            courseTag: formData.courseTag,
-            likes: 0,
-            rating: formData.rating,
+        if (isSubmitting) return;
+            setIsSubmitting(true);
+            setError("");
+            setSuccess("");
+
+        try {
+            const response = await fetch("/api/posts", { //  /api/posts is the route.ts file that handles the post request
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: formData.title,
+                    description: formData.description,
+                    postTag: formData.postTag,
+                    courseTag: formData.courseTag,
+                    rating: formData.rating,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Could not create post (${response.status}).`);
+            }
+            setSuccess("Demo: Post created successfully! (Note: This is a demo and the post is not actually saved to a database.)");
+
+            // Clear the form only after the API shows success.
+            setFormData({
+                title: "",
+                description: "",
+                postTag: "Course Discussion",
+                courseTag: "STEM",
+                rating: "0",
+            });
+
+        } catch (error) {
+
+            if (error instanceof Error) {
+                setError(error.message);
+            } else {
+                setError("An unexpected error occurred.");
+            }
+        } finally {
+            setIsSubmitting(false);
         }
-        setCardHolder((prevCards) => [newCard, ...prevCards])
-
-        setFormData({
-            title: '',
-            description: '',
-            postTag: 'Course Discussion',
-            courseTag: 'STEM',
-            rating: "0"
-        })
-        
-        console.log('Submitted:', formData);
     };
-
-
 
     return (
         <>
             <NavBar isLoggedIn={true} userName={userName}/>
 
             <div className="min-h-screen w-full bg-[#F3EAD6] max-sm:pb-8">
-                <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930] max-sm:text-3xl">Create Post</h1>
+                <h1 className="text-4xl font-bold text-center mt-[5%] text-[#664930] max-sm:text-3xl">Create Post</h1> {/*Need to shrrink text here.*/}
 
                 
                 <form onSubmit={handleSubmit} className="max-w-[600px] mx-auto flex flex-col mt-[2%] text-2xl text-[#664930] px-4 max-sm:w-full max-sm:max-w-[340px] max-sm:mt-5 max-sm:text-base">
@@ -118,6 +145,9 @@ export default function CreatePage() {
                         onChange={handleChange}
                         required
                         />
+
+                        {error && <p role="alert">{error}</p>} {/* Display error message if there is an error, will allwssay show 501 until api is connected */}
+                        {success && <p role="status">{success}</p>} {/* Display success message if the post is created successfully, will always show 501 until api is connected */}
 
                     <label className="grow">Post Tag:</label>
                     <div className="flex max-sm:flex-wrap max-sm:gap-2 max-sm:mt-1 max-sm:mb-4" id="postTag">
@@ -156,8 +186,7 @@ export default function CreatePage() {
 
                     <label className="grow">Rating:</label>
                     <div className="flex max-sm:mt-1" id="rating">
-                            <DropDown dropOption="rating"/>
-
+                            <DropDown dropOption="rating" onChange={(value) => handleTags('rating', value)}/> {/* Connected to the updated Dropdown component that now accepts an onChange prop */}
                     </div>
 
                     <div className="flex justify-center gap-20 mt-10 mb-10 max-sm:flex-wrap max-sm:gap-4 max-sm:mt-6 max-sm:mb-2">
@@ -167,8 +196,8 @@ export default function CreatePage() {
                             </button>
                         </Link>
                         {/*<Link className="text-center" href="/discussion">*/}
-                            <button type="submit" className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10 max-sm:!m-0 max-sm:!text-base">
-                                Submit
+                            <button type="submit" disabled={isSubmitting}  className="NavButton whitespace-pre-line bg-[#997E67] text-white font-bold rounded-[15px] hover:bg-[#854638] active:bg-[#693626] w-30 h-10 max-sm:!m-0 max-sm:!text-base">
+                                {isSubmitting ? "Creating..." : "Create Post"}
                             </button>
                         {/*</Link>*/}
                     </div>
