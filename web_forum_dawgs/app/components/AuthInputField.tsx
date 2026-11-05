@@ -7,17 +7,23 @@ type InputProps = {
   type: string;
   inputLabel: string;
   showPassword?: boolean;
+  onChange?: (value: string) => void;
 };
 
 /* Component for any log in input fields. It has the show password thing.*/
-export default function AuthInputField({ type, inputLabel, showPassword }: InputProps) {
+export default function AuthInputField({ type, inputLabel, showPassword, onChange }: InputProps) {
     const [value, setValue] = useState('');
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     // Find input type of this component based on if show password and it is type password. Basically it changes between type text and password
     const inputType = showPassword && isPasswordShown ? 'text' : type;
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
+        const newValue = e.target.value;
+        setValue(newValue);
+
+        if (onChange) {
+            onChange(newValue);
+        }
     };
 
     return (

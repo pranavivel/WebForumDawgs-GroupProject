@@ -4,9 +4,13 @@ import {useState} from 'react'
 
 type DropDownProps = {
     dropOption: string;
+    onChange?: (value: string) => void;
 }
 
-export default function DropDown({dropOption} : DropDownProps) {
+export default function DropDown({
+    dropOption,
+    onChange
+} : DropDownProps) {
     const [chosenOption, setChosenOption] = useState('Please Select');
     const [isOpen,setIsOpen] = useState(false);
 
@@ -49,6 +53,9 @@ export default function DropDown({dropOption} : DropDownProps) {
                         onClick={() => {
                             setChosenOption(option.label);
                             setIsOpen(false);
+                            if (onChange) {
+                                onChange(option.value);
+                            }
                         }}
                         className="w-full text-white px-4 py-2 text-left cursor-pointer hover:bg-[#664930]"
                     >
